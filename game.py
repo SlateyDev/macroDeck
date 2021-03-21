@@ -5,6 +5,7 @@ import pygame.freetype
 
 from buttonscreen import ButtonScreen
 from hostportinputscreen import HostPortInputScreen
+from keyboardinputscreen import KeyboardInputScreen
 from messagescreen import MessageScreen
 from tcpclient import TCPClient
 
@@ -37,7 +38,7 @@ class Game:
         if action == 0:
             self.tcp_client.connect(HOST, PORT)
         elif action == 1:
-            self.screen_layers.append(HostPortInputScreen(self))
+            self.screen_layers.append(KeyboardInputScreen(self))
         elif action == 2:
             sys.exit()
 
