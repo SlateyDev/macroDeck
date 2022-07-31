@@ -61,10 +61,11 @@ class TCPClient:
         elif self.connect_state == 4:
             readable, _, _ = select.select([self.socket], [], [], 0)
             for read_socket in readable:
-                print("reading data")
-                read_data = read_socket.recv(1024)
+                #print("reading data")
+                read_data = read_socket.recv(16384)
                 if len(read_data):
-                    print(read_data)
+                    pass
+                    #print(read_data)
                 else:
                     print("connection closed")
                     err = self.socket.getsockopt(socket.SOL_SOCKET, socket.SO_ERROR)

@@ -54,13 +54,20 @@ class HostPortInputScreen(GameScreen):
         for index, button in enumerate(self.buttons):
             button.render(index == self.selected_button)
 
+    def handle_touch_down(self, coords):
+        self.mouse_down_action(1, coords)
+
+    def handle_touch_up(self, coords):
+        self.mouse_up_action(1, coords)
+
     def handle_event(self, event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            self.mouse_down_action(event.button, pos)
-        elif event.type == pygame.MOUSEBUTTONUP:
-            pos = pygame.mouse.get_pos()
-            self.mouse_up_action(event.button, pos)
+        pass
+        #if event.type == pygame.MOUSEBUTTONDOWN:
+        #    pos = pygame.mouse.get_pos()
+        #    self.mouse_down_action(event.button, pos)
+        #elif event.type == pygame.MOUSEBUTTONUP:
+        #    pos = pygame.mouse.get_pos()
+        #    self.mouse_up_action(event.button, pos)
 
     def mouse_down_action(self, button: int, pos: (int, int)):
         if button == 1:
